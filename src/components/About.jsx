@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { FaGraduationCap, FaAward, FaBrain, FaEnvelope, FaPhone, FaMapMarkerAlt, FaUser } from 'react-icons/fa';
 import './About.css';
+import Profile from '../assets/profile.jpg';
 
 const About = () => {
   const ref = useRef(null);
@@ -85,7 +86,7 @@ const About = () => {
           <div className="about-image-container">
             {!imageError ? (
               <img 
-                src="/src/assets/profile.jpg" 
+                src={Profile}
                 alt="Sai Teja Dusari" 
                 className="about-image"
                 onError={() => setImageError(true)}
