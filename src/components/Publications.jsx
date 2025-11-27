@@ -6,7 +6,11 @@ import './Publications.css';
 
 const Publications = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-150px', amount: 0.2 });
+  const isMobile = window.innerWidth < 768;
+  const isInView = useInView(ref, { once: true, 
+    margin: isMobile ? '0px' : '-150px',
+    amount: isMobile ? 0.1 : 0.2
+  });
 
   const publications = [
     {

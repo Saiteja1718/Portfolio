@@ -7,7 +7,11 @@ import './Skills.css';
 
 const Skills = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-150px', amount: 0.2 });
+  const isMobile = window.innerWidth < 768;
+  const isInView = useInView(ref, { once: true,
+    margin: isMobile ? '0px' : '-100px', // Less aggressive margin
+    amount: isMobile ? 0.1 : 0.2 // Lower threshold on mobile
+    });
 
   const skillsData = [
     {
@@ -91,6 +95,7 @@ const Skills = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
+        // animate={isInView ? 'visible' : 'visible'}
       >
         {skillsData.map((category, index) => (
           <motion.div
