@@ -1,53 +1,94 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { FaPython, FaCode, FaTools } from 'react-icons/fa';
-import { SiTensorflow, SiScikitlearn, SiPandas, SiNumpy } from 'react-icons/si';
+import { FaCode, FaTools } from 'react-icons/fa';
+import { SiTensorflow } from 'react-icons/si';
 import './Skills.css';
 
 const Skills = () => {
   const ref = useRef(null);
   const isMobile = window.innerWidth < 768;
-  const isInView = useInView(ref, { once: true,
-    margin: isMobile ? '0px' : '-100px', // Less aggressive margin
-    amount: isMobile ? 0.1 : 0.2 // Lower threshold on mobile
-    });
+  const isInView = useInView(ref, {
+    once: true,
+    margin: isMobile ? '0px' : '-100px',
+    amount: isMobile ? 0.1 : 0.2,
+  });
 
   const skillsData = [
     {
-      category: 'Languages',
+      category: 'Programming Languages',
       icon: <FaCode />,
       skills: [
         { name: 'Python', level: 95 },
-        { name: 'C', level: 80 },
-        { name: 'C++', level: 80 },
+        { name: 'SQL', level: 90 },
+        { name: 'R', level: 85 },
+        { name: 'C/C++', level: 85 },
+        { name: 'MATLAB', level: 80 },
         { name: 'HTML', level: 85 },
         { name: 'CSS', level: 85 },
-        { name: 'JavaScript', level: 80 },
+        { name: 'JavaScript', level: 85 },
       ],
     },
     {
-      category: 'Frameworks & Libraries',
+      category: 'Data Analysis & Visualization',
+      icon: <FaTools />,
+      skills: [
+        { name: 'Excel', level: 90 },
+        { name: 'Tableau', level: 85 },
+        { name: 'Power BI', level: 85 },
+        { name: 'Matplotlib', level: 90 },
+        { name: 'Seaborn', level: 90 },
+      ],
+    },
+    {
+      category: 'Machine Learning & Libraries',
+      icon: <SiTensorflow />,
+      skills: [
+        { name: 'Scikit-learn', level: 95 },
+        { name: 'NumPy', level: 95 },
+        { name: 'Pandas', level: 95 },
+        { name: 'NLTK', level: 85 },
+        { name: 'spaCy', level: 85 },
+        { name: 'Transformers', level: 85 },
+        { name: 'OpenCV', level: 85 },
+        { name: 'Torchvision', level: 80 },
+      ],
+    },
+    {
+      category: 'Frameworks',
       icon: <SiTensorflow />,
       skills: [
         { name: 'TensorFlow', level: 90 },
         { name: 'Keras', level: 90 },
-        { name: 'Scikit-learn', level: 95 },
-        { name: 'NumPy', level: 95 },
-        { name: 'Pandas', level: 95 },
-        { name: 'Matplotlib', level: 85 },
-        { name: 'Seaborn', level: 85 },
-        { name: 'Django', level: 75 },
+        { name: 'PyTorch', level: 85 },
+        { name: 'LangChain', level: 85 },
+        { name: 'LlamaIndex', level: 80 },
+        { name: 'RAG', level: 85 },
+        { name: 'Streamlit', level: 85 },
+        { name: 'PySpark', level: 80 },
       ],
     },
     {
-      category: 'Tools & Platforms',
+      category: 'Cloud & Platforms',
       icon: <FaTools />,
       skills: [
-        { name: 'Google Colab', level: 90 },
-        { name: 'GitHub', level: 90 },
-        { name: 'VS Code', level: 95 },
-        { name: 'Git', level: 85 },
+        { name: 'AWS', level: 85 },
+        { name: 'Azure', level: 80 },
+        { name: 'GCP', level: 80 },
+      ],
+    },
+    {
+      category: 'Tools and Data Platforms',
+      icon: <FaTools />,
+      skills: [
+        { name: 'ETL Tools', level: 85 },
+        { name: 'A/B Testing', level: 80 },
+        { name: 'Git / GitHub', level: 90 },
+        { name: 'Docker', level: 80 },
+        { name: 'Snowflake', level: 80 },
+        { name: 'Databricks', level: 80 },
+        { name: 'RAG', level: 85 },
+        { name: 'Prompt Engineering', level: 90 },
       ],
     },
   ];
@@ -69,9 +110,9 @@ const Skills = () => {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { 
+      transition: {
         duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
   };
@@ -82,9 +123,9 @@ const Skills = () => {
         className="section-title"
         initial={{ opacity: 0, y: 50, scale: 0.9 }}
         animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-        transition={{ 
+        transition={{
           duration: 0.8,
-          ease: [0.25, 0.46, 0.45, 0.94]
+          ease: [0.25, 0.46, 0.45, 0.94],
         }}
       >
         Technical Skills
@@ -95,7 +136,6 @@ const Skills = () => {
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
-        // animate={isInView ? 'visible' : 'visible'}
       >
         {skillsData.map((category, index) => (
           <motion.div
