@@ -42,7 +42,7 @@ Pausing motion freezes the working activity while retaining the hands-on-desk po
 
 Get to know me opens a section navigator. Scroll, swipe vertically, use arrow keys,
 or choose a named section. Each section has animated artwork. About includes the
-professional portrait and education; Skills contains the toolkit; Projects holds
+illustrated character portrait and education; Skills contains the toolkit; Projects holds
 the two applications and two research projects; Experience covers Starr Insurance
 and research; Contact has the original email and social links.
 
